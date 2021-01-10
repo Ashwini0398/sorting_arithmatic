@@ -8,3 +8,4 @@ read -p "enter the number c" c
 
 val=$(($a+$b*$c))
 val2=$(($a*$b+$c))
+val3=$(($c+$a/$b))
