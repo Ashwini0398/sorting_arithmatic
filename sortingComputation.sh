@@ -38,5 +38,17 @@ do
         done
 done
 
+for (( i=0; i<3; i++ ))
+do
+        for (( j=0; j<$((3-$i)); j++ ))
+        do
+                if (( ${array[j]} > ${array[j+1]} ))
+                then
+                        temp=${array[j+1]}
+                        array[j+1]=${array[j]}
+                        array[j]=$temp
+                fi
+        done
+done
 
 echo "${array[@]}"
