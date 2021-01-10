@@ -18,4 +18,24 @@ result[computation2]=$val2
 result[computation3]=$val3
 result[computation4]=$val4
 
-echo ${result[@]}
+echo "${result[@]}"
+
+array[0]=${result[computation1]}
+array[1]=${result[computation2]}
+array[2]=${result[computation3]}
+array[3]=${result[computation4]}
+
+for (( i=0; i<3; i++ ))
+do
+	for (( j=0; j<$((3-$i)); j++ ))
+	do
+		if (( ${array[j]} < ${array[j+1]} ))
+		then
+			temp=${array[j+1]}
+			array[j+1]=${array[j]}
+			array[j]=$temp
+		fi
+	done
+done
+
+echo "${array[@]}"
